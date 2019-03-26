@@ -1,0 +1,34 @@
+.postContainer {
+
+}
+
+.emojisLikes .likes {
+    padding-left: 15px;
+}
+
+.emojisLikes .likes p{
+    margin: 0;
+}
+
+
+.postCard {
+    margin: 20px auto;
+    width: 500px;
+    text-align: left;
+    border: 1px solid lightgray;
+}
+.postHeader {
+    padding: 15px;
+    display: flex;
+}
+
+.postHeader img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+
+}
+.postImg img{
+    width: 100%;
+}
