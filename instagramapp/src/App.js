@@ -12,16 +12,23 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: dummyData
+      data: []
     };
   };
 
-
+  //In `app.js` use `componentDidMount()` to set your data to the component's state. 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        data: dummyData
+      });
+    }, 2000);
+  }
 
   render() {
     return (
       <div className="App">
-      
+
         <header className="App-header">
         <SearchBar />
         </header>

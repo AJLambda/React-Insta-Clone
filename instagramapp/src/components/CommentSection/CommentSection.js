@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import "./CommentSection.css";
 import Comment from './Comment'
 
