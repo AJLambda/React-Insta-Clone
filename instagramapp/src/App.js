@@ -17,13 +17,28 @@ class App extends Component {
   };
 
   //In `app.js` use `componentDidMount()` to set your data to the component's state. 
+
+  //post-render actions (fetching data or event listeners)
   componentDidMount() {
+    console.log('CDM Running')
+    //mock data fetch
     setTimeout(() => {
       this.setState({
         data: dummyData
       });
     }, 2000);
+
+    window.addEventListener('resize', () => {});
   }
+
+  //clean up event listeners/subscriptions
+  componentWillUnmount() {
+    window.removeEventListener('resize', () => {});
+  }
+
+  handleChanges = () => {
+    this.setState();
+  };
 
   render() {
     return (

@@ -3,9 +3,13 @@ import "./PostContainer.css";
 import CommentSection from '../CommentSection/CommentSection';
 import CommentForm from '../CommentSection/CommentForm'
 
+
 // Each PostContainer component will then pass the array of comments on each post object as a prop to an instance of the CommentSection component.
 
 const PostContainer = (props) => {
+
+    console.log('receiving props - re-rendering');
+   
     return (
 
         <div className = "postContainer">
