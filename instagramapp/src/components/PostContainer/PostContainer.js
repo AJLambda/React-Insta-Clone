@@ -2,6 +2,7 @@ import React from 'react';
 import "./PostContainer.css";
 import CommentSection from '../CommentSection/CommentSection';
 import CommentForm from '../CommentSection/CommentForm'
+import Loader from 'react-loader-spinner';
 
 
 // Each PostContainer component will then pass the array of comments on each post object as a prop to an instance of the CommentSection component.
@@ -9,7 +10,10 @@ import CommentForm from '../CommentSection/CommentForm'
 const PostContainer = (props) => {
 
     console.log('receiving props - re-rendering');
-   
+    if (props.dataProps.length === 0) {
+        return <Loader type="Plane" color="#00BFFF" height="100" width="100" />;
+    }
+
     return (
 
         <div className = "postContainer">
