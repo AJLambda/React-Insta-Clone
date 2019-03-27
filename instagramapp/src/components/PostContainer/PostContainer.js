@@ -1,7 +1,6 @@
 import React from 'react';
 import "./PostContainer.css";
 import CommentSection from '../CommentSection/CommentSection';
-import CommentForm from '../CommentSection/CommentForm'
 import Loader from 'react-loader-spinner';
 
 
@@ -32,7 +31,8 @@ const PostContainer = (props) => {
                     
                     <div className = "emojisLikes">
                         <div className = "emojis">
-
+                            <i className="far fa-heart fa-lg" />
+                            <i className="far fa-comment fa-lg" />
                         </div>
                         <div className = "likes">
                             <strong><p>{item.likes} likes</p></strong>
@@ -40,12 +40,10 @@ const PostContainer = (props) => {
                     </div>
 
                     <CommentSection 
-                        comments = {item.comments}
                         key = {item.id}
+                        comments = {item.comments}
                     />
 
-                    <CommentForm
-                    />
 
                 </div>
             ))}

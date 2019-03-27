@@ -12,7 +12,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      likes: dummyData.likes
     };
   };
 
@@ -36,11 +37,13 @@ class App extends Component {
     window.removeEventListener('resize', () => {});
   }
 
-  handleChanges = () => {
-    this.setState();
+  incrementLike = () => {
+    let likes = this.state.likes + 1;
+    this.setState({ likes });
   };
 
   render() {
+    console.log('rendering component', this.state.data)
     return (
       <div className="App">
 
@@ -48,8 +51,11 @@ class App extends Component {
         <SearchBar />
         </header>
 
+       
         <PostContainer 
         dataProps = {this.state.data}
+        incrementLike= {this.incrementLike}
+        likes= {this.state.likes}
         />
         
       </div>
