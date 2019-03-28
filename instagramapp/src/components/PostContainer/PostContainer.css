@@ -43,3 +43,7 @@
 .postImg img {
     width: 100%;
 }
+
+.postCard .emojisLikes .emojis .fas.fa-heart{
+    color: red;
+}

@@ -50,7 +50,7 @@ class Login extends React.Component {
                     name = "password"
                     placeholder = "password"
                     value = {this.state.password}
-                    onChange = {this.handleChanges}/>/>
+                    onChange = {this.handleChanges}/>
 
                 <Button type = "submit">Login</Button>
 

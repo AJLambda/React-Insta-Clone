@@ -31,7 +31,16 @@ const PostContainer = (props) => {
                     
                     <div className = "emojisLikes">
                         <div className = "emojis">
-                            <i className="far fa-heart fa-lg" />
+                        { item.userLike 
+                            ? <i 
+                            className="fas fa-heart fa-lg" 
+                            onClick = {() => props.toggleUserLike(item.id, item.userLike)}
+                            />
+                            : <i 
+                            className="far fa-heart fa-lg" 
+                            onClick = {() => props.toggleUserLike(item.id, item.userLike)}
+                            />
+                        }
                             <i className="far fa-comment fa-lg" />
                         </div>
                         <div className = "likes">

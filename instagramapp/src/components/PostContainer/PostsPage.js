@@ -10,8 +10,7 @@ class PostsPage extends React.Component {
     constructor (props) {
         super (props)
         this.state = {
-            data: [],
-            likes: dummyData.likes
+          data: [],
         }
     }
 
@@ -35,28 +34,37 @@ class PostsPage extends React.Component {
     window.removeEventListener('resize', () => {});
   }
 
-  incrementLike = () => {
-    let likes = this.state.likes + 1;
-    this.setState({ likes });
-  };
+  toggleUserLike = (id, userLike, e) => {
+    this.setState({
+      data: this.state.data.map(item => {
+        return item.id === id
+          ? {
+            ...item,
+            userLike: !item.userLike,
+            likes: userLike ? item.likes-1 : item.likes+1,
+          }
+          : item;
+      })
+    })
+  }
 
-    render () {
-        return (
+  render () {
+    return (
 
-            <div className = "Posts-page">
-            <header className="App-header">
-            <SearchBar />
-            </header>
-    
-           
-            <PostContainer 
-            dataProps = {this.state.data}
-            incrementLike= {this.incrementLike}
-            likes= {this.state.likes}
-            />
-            </div>
-        )
-    }
+      <div className = "Posts-page">
+      <header className="App-header">
+      <SearchBar />
+      </header>
+
+      
+      <PostContainer 
+      dataProps = {this.state.data}
+      toggleUserLike= {this.toggleUserLike}
+      likes= {this.state.likes}
+      />
+      </div>
+    )
+  }
 
 
 
