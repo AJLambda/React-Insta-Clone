@@ -11,6 +11,8 @@ class PostsPage extends React.Component {
         super (props)
         this.state = {
           data: [],
+          search: '',
+          searchFinder: '',
         }
     }
 
@@ -34,6 +36,7 @@ class PostsPage extends React.Component {
     window.removeEventListener('resize', () => {});
   }
 
+  //toggle likes
   toggleUserLike = (id, userLike, e) => {
     this.setState({
       data: this.state.data.map(item => {
@@ -48,20 +51,34 @@ class PostsPage extends React.Component {
     })
   }
 
+  searchPosts = e => {
+    e.preventDefault();
+
+    this.setState({
+      searchFinder: this.state.search,
+    })
+  }
+
+  handleSearchChanges = e => {
+    this.setState({ search: e.target.value })
+  }
+
   render () {
     return (
 
       <div className = "Posts-page">
-      <header className="App-header">
-      <SearchBar />
-      </header>
+        <header className="App-header">
+          <SearchBar 
+          searchPosts={this.searchPosts}
+          handleSearchChanges={this.handleSearchChanges}/>
+        </header>
 
-      
-      <PostContainer 
-      dataProps = {this.state.data}
-      toggleUserLike= {this.toggleUserLike}
-      likes= {this.state.likes}
-      />
+        <PostContainer 
+        dataProps = {this.state.data}
+        toggleUserLike= {this.toggleUserLike}
+       
+        />
+
       </div>
     )
   }
