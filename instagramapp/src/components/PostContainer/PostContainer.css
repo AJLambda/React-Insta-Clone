@@ -1,0 +1,49 @@
+.postContainer {
+
+}
+
+.emojisLikes {
+    margin-top: 10px;
+}
+.emojis {
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.fa-comment {
+    padding-left: 20px;
+}
+
+.emojisLikes .likes {
+    padding-left: 15px;
+}
+
+.emojisLikes .likes p {
+    margin: 0;
+}
+
+.postCard {
+    margin: 20px auto;
+    width: 500px;
+    text-align: left;
+    border: 1px solid lightgray;
+}
+.postHeader {
+    padding: 15px;
+    display: flex;
+}
+
+.postHeader img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+
+}
+.postImg img {
+    width: 100%;
+}
+
+.postCard .emojisLikes .emojis .fas.fa-heart{
+    color: red;
+}
