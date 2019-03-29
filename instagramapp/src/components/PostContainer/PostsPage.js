@@ -11,8 +11,7 @@ class PostsPage extends React.Component {
         super (props)
         this.state = {
           data: [],
-          search: '',
-          searchFinder: '',
+          filteredData: []
         }
     }
 
@@ -37,7 +36,7 @@ class PostsPage extends React.Component {
   }
 
   //toggle likes
-  toggleUserLike = (id, userLike, e) => {
+  toggleUserLike = (id, userLike) => {
     this.setState({
       data: this.state.data.map(item => {
         return item.id === id
@@ -51,16 +50,16 @@ class PostsPage extends React.Component {
     })
   }
 
-  searchPosts = e => {
-    e.preventDefault();
+  searchPostsHandler = e => {
+    
+    const data = this.state.data.filter(item => {
+      
+      if (item.username.includes(e.target.value)) {
+        return item;
+      }
+    });
 
-    this.setState({
-      searchFinder: this.state.search,
-    })
-  }
-
-  handleSearchChanges = e => {
-    this.setState({ search: e.target.value })
+    this.setState({ filteredData: data });
   }
 
   render () {
@@ -69,12 +68,18 @@ class PostsPage extends React.Component {
       <div className = "Posts-page">
         <header className="App-header">
           <SearchBar 
-          searchPosts={this.searchPosts}
-          handleSearchChanges={this.handleSearchChanges}/>
+          
+          searchPosts={this.searchPostsHandler}
+
+          />
         </header>
 
         <PostContainer 
-        dataProps = {this.state.data}
+        data = {
+          this.state.filteredData.length > 0 
+          ? this.state.filteredData
+          : this.state.data
+        }
         toggleUserLike= {this.toggleUserLike}
        
         />

@@ -4,41 +4,41 @@ import { Form } from 'reactstrap';
 import { Input } from 'reactstrap';
 
 const SearchBar = (props) => {
-    return ( 
+  return ( 
 
-      <header className="search-bar-wrapper">
-        <div className="social">
-          <i className="fab fa-instagram fa-2x"></i>
-          <h1 className="instaText">Instagram</h1>
-        </div>
+    <header className="search-bar-wrapper">
+      <div className="social">
+        <i className="fab fa-instagram fa-2x"></i>
+        <h1 className="instaText">Instagram</h1>
+      </div>
 
-        <div className = "search-bar">
-          <Form onSubmit = {props.searchPosts}>
-            <Input 
-              type = "search"
-              id = "searchbar"
-              placeholder = "Search" 
-              onChange = {props.handleSearchChanges}
-            />
-          </Form>
-        </div>
+      <div className = "search-bar">
+        <Form>
+          <Input 
+            type = "search"
+            id = "searchbar"
+            placeholder = "Search" 
+            onKeyDown = {props.searchPosts}
+          />
+        </Form>
+      </div>
 
-        <div className="social-wrapper">
+      <div className="social-wrapper">
 
-        <div className="social">
-          <i className="far fa-compass fa-lg" />
-        </div>
-        <div className="social">
-          <i className="far fa-heart fa-lg" />
-        </div>
-        <div className="social">
-          <i className="far fa-user-circle fa-lg" />
-        </div>
+      <div className="social">
+        <i className="far fa-compass fa-lg" />
+      </div>
+      <div className="social">
+        <i className="far fa-heart fa-lg" />
+      </div>
+      <div className="social">
+        <i className="far fa-user-circle fa-lg" />
+      </div>
 
-        </div>
-      </header>
+      </div>
+    </header>
 
-    );
+  );
 };
 
 export default SearchBar;
